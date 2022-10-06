@@ -15,3 +15,22 @@ function escreva(){
     document.write(tabuada + " x 10 = " + (tabuada*10) + "<br>");
 }
 
+let lista = [ "Spessato" , "Duarte" ,"Jesus" , "Raquel"];
+
+function mostra(){
+    document.write(lista.length + "<br>");
+    for (let i= 0; i < lista.length; i ++){
+        document.write(lista[i] + "<br>");
+    }
+    
+}
+
+function mostratabuada(){
+    for(let i = 1; i<=  10; i++){
+        document.write( "0 valordo i" + i + "<br>");
+    }
+    }
+}
+
+
+
