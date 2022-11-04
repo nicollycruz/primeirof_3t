@@ -1,4 +1,4 @@
- let tabuada = 5;
+let tabuada = 5;
 
 function escreva(){
     document.write("Tabuada do " + tabuada + "<br>")
@@ -37,7 +37,7 @@ function total(){
     let j = document.getElementById("juros").value;
     let t = document.getElementById("meses").value;
     if (!Number (v)){
-        alert("O campo valor deve ser númreros.");
+        alert("O campo Capital deve ser númreros.");
         document.getElementById("valor").value = "";
         document.getElementById("valor").focus();
         return;
@@ -58,13 +58,13 @@ function total(){
     let texto = ""
     for(let i =1; i <=t; i++){
         r = v * (1 + (j/100));
-        //document.write("Mẽs " + i + " - valor: " + moeda(r) + "<br>");
-        texto  += "Mẽs " + i + " - valor: " + moeda(r) + "<br>";
+        //document.write("Mês " + i + " - valor: " + moeda(r) + "<br>");
+        texto += "Mês " + i + " - valor: " + moeda(r) + "<br>";
         v = r;
     }
-    document.getElementById("Mes").innerHTML = texto;
-    document.getElementById("Total").innerHTML = moeda(r);w
-    //document.write("Resultado: " + moeda(r));
+    document.getElementById("mes").innerHTML = texto;
+    document.getElementById("total").innerHTML = moeda(r);
+   // document.write("Resultado: " + moeda(r));
 }
 function SomaNota(){
     let n1 = document.getElementById("b1").value;
@@ -96,5 +96,5 @@ function passa(){
     
     let r =  Number(n1)+Number(n2)+Number(n3)+Number(n4);
 
-    document.getElementById("resul").innerHTML = "Resultado " + (r -24);
+    document.getElementById("resul").innerHTML = "Resultado " + (24- r);
 }
