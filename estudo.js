@@ -1,100 +1,98 @@
-let tabuada = 5;
+let tabuada = 2;
 
-function escreva(){
-    document.write("Tabuada do " + tabuada + "<br>")
-    document.write(tabuada + " x 1 = " + (tabuada*1) + "<br>");
-    document.write(tabuada + " x 2 = " + (tabuada*2) + "<br>");   
-    document.write(tabuada + " x 3 = " + (tabuada*3) + "<br>");
-    document.write(tabuada + " x 4 = " + (tabuada*4) + "<br>");
-    document.write(tabuada + " x 5 = " + (tabuada*5) + "<br>");
-    document.write(tabuada + " x 6 = " + (tabuada*6) + "<br>");
-    document.write(tabuada + " x 7 = " + (tabuada*7) + "<br>");
-    document.write(tabuada + " x 8 = " + (tabuada*8) + "<br>");
-    document.write(tabuada + " x 9 = " + (tabuada*9) + "<br>");
-    document.write(tabuada + " x 10 = " + (tabuada*10) + "<br>");
+function escreva() {
+    document.write("Tabuada do " + tabuada + "<br>");
+    document.write(tabuada + " x 1 = " + (tabuada * 1) + "<br>");
+    document.write(tabuada + " x 2 = " + (tabuada * 2) + "<br>");
+    document.write(tabuada + " x 3 = " + (tabuada * 3) + "<br>");
+    document.write(tabuada + " x 4 = " + (tabuada * 4) + "<br>");
+    document.write(tabuada + " x 5 = " + (tabuada * 5) + "<br>");
+    document.write(tabuada + " x 6 = " + (tabuada * 6) + "<br>");
+    document.write(tabuada + " x 7 = " + (tabuada * 7) + "<br>");
+    document.write(tabuada + " x 8 = " + (tabuada * 8) + "<br>");
+    document.write(tabuada + " x 9 = " + (tabuada * 9) + "<br>");
+    document.write(tabuada + " x 10 = " + (tabuada * 10) + "<br>");
+
 }
 
-let lista = ["Jesus","Spessato","Jorge","Raquel"]
-
-function mostra(){
-    document.write(lista.length + "<br>");
-    for(let i = 0; i < lista.length; i++){
-        document.write(lista[i] + "<br>");
-    }  
-}
-
-function mostratabuada(){
-    for(let i = 1; i <= 10; i++){
-        document.write("O valor do i " + i + "<br>");
+function minhaTabuada() {
+    for (let i = 1; i <= 10; i++) {
+        document.write("Tabuada do " + i + "<br>");
+        for (let j = 1; j <= 10; j++) {
+            document.write(i + " x " + j + " = " + (j * i) + "<br>");
+        }
+        document.write("<br>");
     }
 }
-function moeda(atual){
-    
-    return atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+function quadrado() {
+    for (let i = 1; i <= 10; i++) {
+        document.write("O quadrado de " + i + " é " + (i * i) + "<br>");
+    }
 }
-function total(){
-    let v = document.getElementById("valor").value;
+
+function moeda(atual) {
+    return atual.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+}
+
+function calcula() {
+    let val = document.getElementById("valor").value;
     let j = document.getElementById("juros").value;
     let t = document.getElementById("meses").value;
-    if (!Number (v)){
-        alert("O campo Capital deve ser númreros.");
+    if (!Number(val)) {
+        alert("O valor deve ser um NÚMERO.");
         document.getElementById("valor").value = "";
         document.getElementById("valor").focus();
-        return;
+        return
     }
-    if (!Number (j)){
-        alert("O campo juros deve ser númreros.");
+    if (!Number(j)) {
+        alert("O valor dos juros deve ser um NÚMERO.");
         document.getElementById("juros").value = "";
         document.getElementById("juros").focus();
-        return;
+        return
     }
-    if (!Number (t)){
-        alert("O campo N.meses deve ser númreros.");
+    if (!Number(t)) {
+        alert("O valor do tempo deve ser um NÚMERO.");
         document.getElementById("meses").value = "";
         document.getElementById("meses").focus();
-        return;
+        return
     }
-    let r = 0; 
-    let texto = ""
-    for(let i =1; i <=t; i++){
-        r = v * (1 + (j/100));
-        //document.write("Mês " + i + " - valor: " + moeda(r) + "<br>");
-        texto += "Mês " + i + " - valor: " + moeda(r) + "<br>";
-        v = r;
+
+    let res = val;
+    let texto = "";
+    for (let m = 1; m <= t; m++) {
+        res = val * (1 + (j / 100));
+        val = res;
+        texto += m + ": " + moeda(res) + "<br>"; 
+       // document.write("Mês " + m + " = " + moeda(res) + "<br>")
     }
-    document.getElementById("mes").innerHTML = texto;
-    document.getElementById("total").innerHTML = moeda(r);
-   // document.write("Resultado: " + moeda(r));
+    document.getElementById("mes").innerHTML=texto;
+    document.getElementById("total").innerHTML= "Total: " + moeda(res);
+    //document.write("Resultado: " + moeda(res));
 }
-function SomaNota(){
-    let n1 = document.getElementById("b1").value;
-    let n2 = document.getElementById("b2").value;
-    let n3 = document.getElementById("b3").value;
-    let n4 = document.getElementById("b4").value;
 
-    let r =  Number(n1)+Number(n2)+Number(n3)+Number(n4);
-
-    document.getElementById("resul").innerHTML = "Soma: " + r;
-
+function somarNotas() {
+    let n1 = document.getElementById("t1").value;
+    let n2 = document.getElementById("t2").value;
+    let n3 = document.getElementById("t3").value;
+    let r = Number(n1) + Number(n2) + Number(n3);
+    document.getElementById("resultadosoma").innerHTML = "Soma: " + r;
 }
-function media(){
-    let n1 = document.getElementById("b1").value;
-    let n2 = document.getElementById("b2").value;
-    let n3 = document.getElementById("b3").value;
-    let n4 = document.getElementById("b4").value;
-    
-    let r =  Number(n1)+Number(n2)+Number(n3)+Number(n4);
 
-    document.getElementById("resul").innerHTML = "Resultado " + r /4;
-   
+function mediaNotas() {
+    let n1 = document.getElementById("t1").value;
+    let n2 = document.getElementById("t2").value;
+    let n3 = document.getElementById("t3").value;
+    let r = Number(n1) + Number(n2) + Number(n3);
+    r = r / Number(3)
+    document.getElementById("resultadomedia").innerHTML = "Média: " + r;
 }
-function passa(){
-    let n1 = document.getElementById("b1").value;
-    let n2 = document.getElementById("b2").value;
-    let n3 = document.getElementById("b3").value;
-    let n4 = document.getElementById("b4").value;
-    
-    let r =  Number(n1)+Number(n2)+Number(n3)+Number(n4);
 
-    document.getElementById("resul").innerHTML = "Resultado " + (24- r);
+function fecharNotas() {
+    let n1 = document.getElementById("t1").value;
+    let n2 = document.getElementById("t2").value;
+    let n3 = document.getElementById("t3").value;
+    let r = Number(n1) + Number(n2) + Number(n3);
+    r = 180 - r;
+    document.getElementById("resultadofechar").innerHTML = "Falta: " + r;
 }
